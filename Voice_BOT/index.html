@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sankar Telugu Hindi Voice Bot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Background canvas ── -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ── App Shell ── -->
+  <div class="app-shell">
+
+    <!-- Sidebar / Header -->
+    <header class="topbar">
+      <div class="topbar-brand">
+        <div class="bot-avatar">
+          <span class="avatar-ring"></span>
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="18" fill="url(#av-grad)"/>
+            <defs>
+              <radialGradient id="av-grad" cx="40%" cy="30%">
+                <stop offset="0%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#1e1b4b"/>
+              </radialGradient>
+            </defs>
+            <!-- Mic icon -->
+            <rect x="14" y="8" width="8" height="13" rx="4" fill="white" opacity="0.9"/>
+            <path d="M11 19a7 7 0 0014 0" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.9"/>
+            <line x1="18" y1="26" x2="18" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.9"/>
+            <line x1="14" y1="29" x2="22" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Sankar</h1>
+          <span class="subtitle">Telugu · Hindi · Voice AI</span>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="mute-btn" class="icon-btn" title="Mute / Unmute bot voice">
+          🔊
+        </button>
+        <button id="clear-btn" class="icon-btn" title="Clear chat">
+          🗑
+        </button>
+        <button id="download-btn" class="icon-btn" title="Download conversation">
+          ⬇
+        </button>
+        <div class="status-pill" id="status-pill">
+          <span class="status-dot"></span>
+          <span id="status-text">Ready</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Chat Window ── -->
+    <main class="chat-main">
+      <div class="chat-window" id="chat-window">
+        <!-- Welcome message injected by JS -->
+      </div>
+
+      <!-- Typing indicator -->
+      <div class="typing-indicator" id="typing-indicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <span>Sankar is thinking…</span>
+      </div>
+    </main>
+
+    <!-- ── Live Transcript Panel ── -->
+    <section class="transcript-bar" id="transcript-bar">
+      <span class="transcript-label">🎙 Live Transcript</span>
+      <span id="live-transcript">Say something…</span>
+    </section>
+
+    <!-- ── Input Row ── -->
+    <footer class="input-row">
+      <div class="mic-group">
+        <button id="start-btn" class="mic-btn start" title="Start listening">
+          <svg viewBox="0 0 24 24" fill="none">
+            <rect x="8" y="2" width="8" height="14" rx="4" fill="currentColor"/>
+            <path d="M5 11a7 7 0 0014 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <line x1="12" y1="18" x2="12" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="9" y1="22" x2="15" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Start
+        </button>
+        <button id="stop-btn" class="mic-btn stop" title="Stop listening" disabled>
+          <svg viewBox="0 0 24 24" fill="none">
+            <rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/>
+          </svg>
+          Stop
+        </button>
+      </div>
+
+      <div class="text-group">
+        <input
+          type="text"
+          id="text-input"
+          class="text-input"
+          placeholder="Type in Hindi, Telugu, or English…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="send-btn" class="send-btn" title="Send">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M22 2L15 22 11 13 2 9l20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+  </div><!-- /.app-shell -->
+
+  <script src="script.js"></script>
+</body>
+</html>
